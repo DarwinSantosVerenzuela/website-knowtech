@@ -1,0 +1,420 @@
+/* =========================================================
+   1. CONFIGURACIÓN BASE Y CONTENEDOR
+   ========================================================= */
+.header-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+    pointer-events: none;
+    /* Permite clicks a través de las áreas vacías */
+}
+
+/* =========================================================
+   2. LOGO CENTRAL FLOTANTE
+   ========================================================= */
+.header-logo-center {
+    position: absolute;
+    /* Centrado absoluto */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Dimensiones y Seguridad */
+    height: 42px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+
+    z-index: 1002;
+    pointer-events: auto;
+    /* Reactiva clicks en el logo */
+}
+
+/* =========================================================
+   3. BARRA PRINCIPAL (PÍLDORA BLANCA)
+   ========================================================= */
+.pill-main {
+    pointer-events: auto;
+    background-color: #ffffff;
+    backdrop-filter: blur(15px);
+
+    height: 50px;
+    width: 98%;
+    max-width: 1600px;
+    border-radius: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Extremos separados */
+
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border: 0 solid rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+/* =========================================================
+   4. SECCIÓN IZQUIERDA (REDES SOCIALES)
+   ========================================================= */
+.section-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Versión Escritorio (Horizontal) */
+.desktop-socials {
+    display: flex;
+    gap: 8px;
+}
+
+/* --- VERSIÓN MÓVIL: REDES VERTICALES --- */
+.mobile-socials-wrapper {
+    display: none;
+    /* Se activa en media queries */
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    /* Alinea botón y menú */
+}
+
+/* Botón Flecha */
+.arrow-trigger {
+    transition: transform 0.3s ease, background-color 0.3s;
+    z-index: 1005;
+}
+
+/* Animación: Gira 90° hacia abajo al abrir */
+.arrow-trigger.active {
+    transform: rotate(90deg);
+    background-color: #555;
+    color: #fff;
+}
+
+/* Menú Desplegable (Vertical) */
+.socials-dropdown {
+    position: absolute;
+
+    /* Ubicación: Justo debajo del botón */
+    top: 45px;
+    left: 0;
+
+    /* Diseño Vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+
+    background-color: #fff;
+    border-radius: 50px;
+    /* Píldora vertical */
+    padding: 8px 4px;
+    width: 36px;
+    /* Mismo ancho que el botón */
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    /* Estado Inicial: Oculto y arriba */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1004;
+}
+
+/* Estado Abierto: Visible y cae */
+.socials-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Iconos pequeños dentro del menú vertical */
+.icon-button.small {
+    width: 30px;
+    height: 30px;
+    min-height: 30px;
+}
+
+/* =========================================================
+   5. SECCIÓN DERECHA Y ELEMENTOS COMUNES
+   ========================================================= */
+.section-right-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Estilo Base de Botones Redondos */
+.icon-button {
+    background-color: #3b3b3b;
+    color: #E8F3F4;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Botón cerrar del modal */
+.close-btn {
+    background-color: #eee;
+    color: #333;
+}
+
+/* =========================================================
+   6. BOTÓN EXPLORAR Y MEGA MENÚ (ESCRITORIO)
+   ========================================================= */
+.explore-container {
+    position: relative;
+    background-color: rgb(233, 233, 233);
+    color: #363636;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.explore-container:hover {
+    background-color: #cfcfcf;
+}
+
+.explore-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    user-select: none;
+}
+
+/* --- MEGA MENÚ FLOTANTE (4 COLUMNAS) --- */
+.mega-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+
+    /* ANCHO AJUSTADO PARA 4 COLUMNAS */
+    width: 950px;
+
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 25px;
+
+    display: grid;
+    /* GRILLA DE 4 COLUMNAS */
+    grid-template-columns: 2fr 1.5fr 1fr 1fr;
+    gap: 40px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1010;
+}
+
+/* Mostrar menú al hover (Solo si pantalla > 1024px) */
+@media (min-width: 1025px) {
+    .explore-container:hover .mega-menu {
+        opacity: 1;
+        visibility: visible;
+        top: 55px;
+    }
+}
+
+/* Estilos de enlaces del menú */
+.menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.menu-title {
+    font-weight: 700;
+    color: #65676b;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.menu-item {
+    font-size: 0.9rem;
+    color: #050505;
+    text-decoration: none;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+/* Botón Hamburguesa (Oculto en escritorio) */
+.mobile-menu-trigger {
+    display: none;
+}
+
+/* =========================================================
+   7. MODAL MENÚ MÓVIL (PANTALLA COMPLETA)
+   ========================================================= */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-menu-content {
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /* Para permitir scroll si el menú es muy alto */
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Nuevos Iconos Home/User en el menú móvil */
+.mobile-nav-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.icon-button.large {
+    width: 45px;
+    height: 45px;
+    background-color: #333;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.mobile-menu-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.mobile-link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.group-title {
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.mobile-link-group a {
+    text-decoration: none;
+    color: #222;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* =========================================================
+   8. MEDIA QUERIES (RESPONSIVIDAD)
+   ========================================================= */
+
+/* TABLET Y MÓVIL (< 1024px) */
+@media (max-width: 1023px) {
+
+    /* Ocultar elementos de escritorio */
+    .desktop-socials {
+        display: none;
+    }
+
+    .explore-container {
+        display: none;
+    }
+
+    /* Ocultamos botón explorar */
+    .section-right {
+        display: none;
+    }
+
+    /* Ocultamos Home/User de la barra */
+
+    /* Mostrar elementos móviles */
+    .mobile-socials-wrapper {
+        display: flex;
+    }
+
+    /* Activamos la flecha vertical */
+    .mobile-menu-trigger {
+        display: flex;
+    }
+
+    /* Activamos hamburguesa */
+
+    /* Ajuste de logo */
+    .header-logo-center {
+        height: 34px;
+    }
+}
+
+/* MÓVIL PEQUEÑO (< 767px) */
+@media (max-width: 767px) {
+    .header-logo-center {
+        height: 28px;
+    }
+
+    .pill-main {
+        padding: 0 8px;
+    }
+}

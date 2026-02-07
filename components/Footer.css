@@ -1,0 +1,173 @@
+/* Footer.css */
+
+/* --- CONFIGURACIÓN BASE (POSICIÓN) --- */
+.footer-wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  /* Z-INDEX SUPERIOR: Nadie debe tapar el footer */
+  background-color: transparent;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-pill {
+  pointer-events: auto;
+  background-color: #ffffff;
+  /* Color base Blanco */
+  /* Toque premium: Un poco de transparencia y blur */
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   1. MUNDO ESCRITORIO (> 1024px) - TU DISEÑO ORIGINAL
+   (No tocamos nada aquí, se verá perfecto como antes)
+========================================================= */
+@media (min-width: 1024px) {
+  .footer-wrapper {
+    padding: 20px 0;
+  }
+
+  .footer-pill {
+    height: 50px;
+    width: 98%;
+    max-width: 1600px;
+    border-radius: 100px;
+    justify-content: space-between;
+    padding: 0 25px;
+  }
+
+  /* Izquierda */
+  .footer-left {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+  }
+
+  .copyright-text {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .privacy-link {
+    color: #666;
+    text-decoration: none;
+    font-size: 11px;
+    /* Reducido para ser más discreto */
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    /* Reset de botón */
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+  }
+
+  .privacy-link:hover {
+    text-decoration: underline;
+    color: #000;
+  }
+
+  /* Derecha */
+  .footer-right {
+    display: flex;
+    gap: 25px;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+}
+
+/* =========================================================
+   2. MUNDO TABLET Y MÓVIL (< 1023px) - MINIMALISTA & DELGADO
+   (Aquí hacemos la liposucción)
+========================================================= */
+@media (max-width: 1023px) {
+
+  .footer-wrapper {
+    padding: 10px 0;
+    padding-bottom: 15px;
+  }
+
+  .footer-pill {
+    /* Cambiamos a Columna pero muy compacta */
+    flex-direction: column-reverse;
+    height: auto;
+
+    width: 100%;
+    max-width: 92%;
+
+    border-radius: 20px;
+    padding: 8px 15px;
+    gap: 5px;
+  }
+
+  /* --- SECCIÓN 1: LINKS (Ahora van arriba visualmente o destacados) --- */
+  .footer-right {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #000000;
+    /* Fuente legible pero no gigante */
+    font-size: 12px;
+    font-weight: 600;
+    /* Un poco más gordita para que sea fácil de leer */
+  }
+
+  /* --- SECCIÓN 2: COPYRIGHT (Texto pequeño abajo) --- */
+  .footer-left {
+    display: flex;
+    flex-direction: row;
+    /* Mantener en una línea si cabe */
+    flex-wrap: wrap;
+    /* Si es muy pequeño el celular, que baje */
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    opacity: 0.7;
+    /* Hacemos este texto un poco más gris/suave */
+  }
+
+  .copyright-text {
+    color: #333;
+    /* MICRO FUENTE: Para que se vea minimalista */
+    font-size: 9px;
+    font-weight: 400;
+  }
+
+  .privacy-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 9px;
+    /* Igual de pequeño */
+    font-weight: 400;
+    text-decoration: underline;
+    /* Subrayado para saber que es clickeable */
+  }
+}

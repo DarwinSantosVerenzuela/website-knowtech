@@ -1,0 +1,165 @@
+/* Main container for the intro overlay */
+.ai-ball-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  /* White background as requested */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+  cursor: pointer;
+  /* Indicates it's clickable */
+}
+
+.ai-ball-container.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* The AI Membrane Ball */
+.ai-ball {
+  position: relative;
+  width: 200px;
+  /* Slightly larger */
+  height: 200px;
+  /* Complex gradient for membrane feel */
+  background: radial-gradient(circle at 50% 50%,
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 120, 255, 0.2),
+      rgba(0, 50, 200, 0.6));
+  box-shadow:
+    inset 0 0 20px rgba(0, 100, 255, 0.3),
+    0 0 30px rgba(0, 100, 255, 0.2);
+
+  /* Organic shape using border-radius */
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+
+  /* Wobble animation */
+  animation: wobble 6s ease-in-out infinite both;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Estilo para el Logo dentro de la bola */
+.ai-ball-logo {
+  width: 70%;
+  /* Tamaño relativo a la bola */
+  height: auto;
+  object-fit: contain;
+  z-index: 10;
+  /* Encima de las capas de membrana */
+  opacity: 0.95;
+  /* Sutil sombra para que destaque */
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+
+  /* Animación suave de entrada (opcional) */
+  animation: fadeInLogo 2s ease-out forwards;
+}
+
+@keyframes fadeInLogo {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+}
+
+/* Inner membrane layers for depth */
+.ai-ball::before,
+.ai-ball::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* Inner core - glow */
+.ai-ball::before {
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(0, 150, 255, 0.4));
+  filter: blur(10px);
+  animation: pulse-core 3s infinite alternate;
+}
+
+/* Outer wrapper/ring texture */
+.ai-ball::after {
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border: 1px solid rgba(0, 100, 255, 0.3);
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: spin-membrane 8s linear infinite;
+}
+
+.membrane-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  opacity: 0.6;
+  animation: spin-membrane-reverse 10s linear infinite;
+}
+
+/* Keyframes */
+
+@keyframes wobble {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes spin-membrane {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-membrane-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-core {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}

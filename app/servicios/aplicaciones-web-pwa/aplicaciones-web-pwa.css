@@ -1,0 +1,24 @@
+/* CSS Específico para APLICACIONES WEB PWA */
+.aplicaciones-web-pwa-container {
+    background-color: transparent;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.aplicaciones-web-pwa-title {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.aplicaciones-web-pwa-description {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 800px;
+    text-align: center;
+    line-height: 1.6;
+}

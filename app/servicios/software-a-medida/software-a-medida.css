@@ -1,0 +1,25 @@
+/* CSS Específico para SOFTWARE A MEDIDA */
+.software-a-medida-container {
+    background-color: transparent;
+    /* Antes #f8f9fa */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.software-a-medida-title {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.software-a-medida-description {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 800px;
+    text-align: center;
+    line-height: 1.6;
+}

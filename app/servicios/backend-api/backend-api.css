@@ -1,0 +1,24 @@
+/* CSS Específico para BACKEND API */
+.backend-api-container {
+    background-color: transparent;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.backend-api-title {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.backend-api-description {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 800px;
+    text-align: center;
+    line-height: 1.6;
+}
