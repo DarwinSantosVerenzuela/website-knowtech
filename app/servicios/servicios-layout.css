@@ -1,92 +1,45 @@
-/* app/servicios/servicios-layout.css */
-
-/* 
-   CONTENEDOR GLOBAL DEL LAYOUT DE SERVICIOS
-   Asegura que ocupe toda la pantalla pero respete el header y footer fijos.
-*/
 .service-layout-wrapper {
     position: relative;
     width: 100%;
     height: 100vh;
-    /* Ocupa todo el alto del viewport */
     overflow: hidden;
-    /* Evita scroll en el body, el scroll va dentro de la tarjeta */
     z-index: 1;
-    /* Bajo, para no tapar el footer */
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    /* Un fondo neutro de base por si acaso */
     background-color: #f5f5f5;
 }
 
-/* 
-   LA TARJETA FLOTANTE (EL LIENZO BLANCO)
-   Esta es la "hoja de papel" redondeada donde va el contenido.
-*/
 .service-content-card {
     background-color: #ffffff;
     width: 98%;
-    /* Casi todo el ancho */
     max-width: 1600px;
-    /* Tope máximo para pantallas gigantes */
-
-    /* 
-       ALTO CALCULADO: 
-       Ajustado para tener margen arriba y abajo iguales.
-       Header ~80px + Footer ~80px = 160px.
-       Más márgenes de 20px arriba y 20px abajo = 40px.
-       Total a restar: 170px (85px arriba + 85px abajo).
-       Deja un margen visual de ~5px con header y footer.
-    */
     height: calc(100vh - 170px);
-
     border-radius: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-
-    /* IMPORTANTE: El scroll se mueve al hijo */
     overflow: hidden;
-
-    /* Padding en el CONTENEDOR EXTERNO para que el scrollbar quede "dentro" */
     padding: 20px 5px 20px 20px;
-
-    /* Estructura Flex para el hijo */
     display: flex;
     flex-direction: column;
 }
 
-/* 
-   NUEVO: CONTENEDOR INTERNO DE SCROLL
-   Este es el que realmente hace scroll.
-*/
 .service-card-scroll {
     width: 100%;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     padding-right: 15px;
-    /* Espacio para que el texto no toque el scrollbar */
-
-    /* Configuración de scrollbar para Firefox */
     scrollbar-width: thin;
     scrollbar-color: #ccc transparent;
 }
 
-
-/* Ocultar barra en Webkit (Mobile) - Se aplica al interno */
 .service-card-scroll::-webkit-scrollbar {
     width: 8px;
-    /* Ancho en escritorio */
 }
 
-/* =========================================================
-   ESTILOS DE SCROLLBAR SOLO PARA ESCRITORIO
-   ========================================================= */
 @media (min-width: 1024px) {
-
-    /* El scrollbar pertenece ahora a .service-card-scroll */
     .service-card-scroll::-webkit-scrollbar {
         display: block;
         width: 8px;
@@ -102,14 +55,10 @@
         background-color: #ccc;
         border-radius: 10px;
         border: 2px solid transparent;
-        /* Simula padding */
         background-clip: content-box;
     }
 }
 
-/* =========================================================
-   ESTILOS MOVIL
-   ========================================================= */
 @media (max-width: 1024px) {
     .service-content-card {
         width: 100%;
@@ -117,14 +66,11 @@
         height: 100vh;
         margin-top: 0;
         padding: 0;
-        /* Quitamos padding externo en móvil */
     }
 
     .service-card-scroll {
         padding: 80px 20px 100px 20px;
-        /* Padding interno para móvil */
         scrollbar-width: none;
-        /* Ocultar scrollbar */
     }
 
     .service-card-scroll::-webkit-scrollbar {

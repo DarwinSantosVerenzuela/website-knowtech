@@ -1,7 +1,6 @@
-/* CSS Específico para SOFTWARE A MEDIDA */
 .software-a-medida-container {
     background-color: transparent;
-    /* Antes #f8f9fa */
+
     min-height: 100vh;
     display: flex;
     flex-direction: column;

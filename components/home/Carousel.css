@@ -1,62 +1,56 @@
-/* El contenedor principal (La tarjeta gris de tu imagen) */
 .carousel-card {
-  position: relative; /* Necesario para que los hijos se posicionen encima */
+  position: relative;
   width: 100%;
-  height: 100%;       /* Ocupa toda la altura disponible */
-  min-height: 350px;  /* Altura mínima para asegurar que se vea bien */
-  border-radius: 24px; /* Bordes muy redondeados como en la imagen */
-  overflow: hidden;    /* Recorta la imagen si se sale de los bordes redondeados */
-  background-color: #e0e0e0; /* Color gris de carga por si falla la imagen */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave opcional */
+  height: 100%;
+  min-height: 350px;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* --- CAPA 1: IMAGEN DE FONDO --- */
 .carousel-image-wrapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Nivel inferior */
+  z-index: 1;
 }
 
 .carousel-img {
   width: 100%;
   height: 100%;
-  /* LA CLAVE: 'cover' hace que llene todo el espacio sin deformarse */
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
   animation: fadeIn 0.8s ease-out;
 }
 
-/* Capa oscura opcional para que los botones resalten sobre fotos claras */
 .carousel-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
-  pointer-events: none; /* Permite hacer clic a través de la sombra */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  pointer-events: none;
 }
 
-/* --- CAPA 2: CONTROLES (Flotando encima) --- */
 .carousel-controls {
   position: relative;
-  z-index: 10; /* Por encima de la imagen */
+  z-index: 10;
   display: flex;
   align-items: center;
-  gap: 12px; /* Espacio entre el título y los botones */
-  padding: 20px; /* Margen interno desde la esquina superior izquierda */
+  gap: 12px;
+  padding: 20px;
 }
 
-/* La píldora de texto (gris oscuro con texto blanco) */
 .info-pill {
-  background-color: rgba(40, 40, 40, 0.6); /* Gris oscuro semi-transparente */
-  backdrop-filter: blur(5px); /* Efecto borroso moderno */
+  background-color: rgba(40, 40, 40, 0.6);
+  backdrop-filter: blur(5px);
   color: #ffffff;
   padding: 8px 20px;
-  border-radius: 9999px; /* Píldora perfecta */
+  border-radius: 9999px;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -67,18 +61,16 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Contenedor de los botones */
 .nav-buttons {
   display: flex;
   gap: 8px;
 }
 
-/* Botones circulares (< >) */
 .circle-btn {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: rgba(40, 40, 40, 0.6); /* Mismo gris que la píldora */
+  background-color: rgba(40, 40, 40, 0.6);
   backdrop-filter: blur(5px);
   border: none;
   color: white;
@@ -92,15 +84,15 @@
 .circle-btn:hover {
   background-color: rgba(255, 255, 255, 1);
   color: black;
-  transform: scale(1.1); /* Crece un poquito al pasar el mouse */
+  transform: scale(1.1);
 }
 
-/* Animación de entrada */
 @keyframes fadeIn {
-  from { 
-    opacity: 0.4; /* Empieza un poco transparente */
+  from {
+    opacity: 0.4;
   }
-  to { 
-    opacity: 1;   /* Termina totalmente visible */
+
+  to {
+    opacity: 1;
   }
 }

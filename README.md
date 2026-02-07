@@ -18,7 +18,21 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Docker
+
+Este proyecto está preparado para ejecutarse en contenedores Docker mediante una construcción optimizada de múltiples etapas.
+
+### Construir la imagen
+```bash
+docker build -t knowtech-app .
+```
+
+### Ejecutar el contenedor
+```bash
+docker run -p 3000:3000 knowtech-app
+```
+
+La aplicación estará disponible en `http://localhost:3000`.
 
 ## Troubleshooting: Hydration Errors
 

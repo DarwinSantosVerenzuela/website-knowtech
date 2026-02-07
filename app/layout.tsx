@@ -1,4 +1,4 @@
-/* app/layout.tsx */
+
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Header from "@/components/Header";
@@ -16,13 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    /* AGREGADO: suppressHydrationWarning para evitar errores de extensiones */
+
     <html lang="es" suppressHydrationWarning>
       <body className={poppins.className} suppressHydrationWarning>
         <Header />
 
-        {/* CORRECCIÓN: Quitamos TODOS los estilos inline que estorban. */}
-        {/* Dejamos el main limpio. La page.tsx se encargará del resto. */}
+
+
         <main>
           {children}
         </main>

@@ -6,7 +6,7 @@ import './privacidad.css';
 export default function Page() {
   return (
     <main className="privacidad-container">
-      {/* Caja blanca centrada sobre el fondo gris del layout */}
+
       <div className="privacidad-box">
 
         <h1 className="text-2xl font-bold mb-6 text-gray-900 leading-tight">

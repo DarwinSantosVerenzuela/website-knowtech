@@ -1,6 +1,3 @@
-/* =========================================================
-   1. CONFIGURACIÓN BASE Y CONTENEDOR
-   ========================================================= */
 .header-wrapper {
     width: 100%;
     display: flex;
@@ -11,20 +8,14 @@
     z-index: 1000;
     background-color: transparent;
     pointer-events: none;
-    /* Permite clicks a través de las áreas vacías */
 }
 
-/* =========================================================
-   2. LOGO CENTRAL FLOTANTE
-   ========================================================= */
 .header-logo-center {
     position: absolute;
-    /* Centrado absoluto */
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
 
-    /* Dimensiones y Seguridad */
     height: 42px;
     width: auto;
     max-width: 180px;
@@ -32,12 +23,8 @@
 
     z-index: 1002;
     pointer-events: auto;
-    /* Reactiva clicks en el logo */
 }
 
-/* =========================================================
-   3. BARRA PRINCIPAL (PÍLDORA BLANCA)
-   ========================================================= */
 .pill-main {
     pointer-events: auto;
     background-color: #ffffff;
@@ -51,7 +38,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Extremos separados */
 
     padding: 0 10px;
     box-sizing: border-box;
@@ -61,52 +47,40 @@
     position: relative;
 }
 
-/* =========================================================
-   4. SECCIÓN IZQUIERDA (REDES SOCIALES)
-   ========================================================= */
 .section-left {
     display: flex;
     align-items: center;
 }
 
-/* Versión Escritorio (Horizontal) */
 .desktop-socials {
     display: flex;
     gap: 8px;
 }
 
-/* --- VERSIÓN MÓVIL: REDES VERTICALES --- */
 .mobile-socials-wrapper {
     display: none;
-    /* Se activa en media queries */
     position: relative;
     flex-direction: column;
     align-items: center;
-    /* Alinea botón y menú */
 }
 
-/* Botón Flecha */
 .arrow-trigger {
     transition: transform 0.3s ease, background-color 0.3s;
     z-index: 1005;
 }
 
-/* Animación: Gira 90° hacia abajo al abrir */
 .arrow-trigger.active {
     transform: rotate(90deg);
     background-color: #555;
     color: #fff;
 }
 
-/* Menú Desplegable (Vertical) */
 .socials-dropdown {
     position: absolute;
 
-    /* Ubicación: Justo debajo del botón */
     top: 45px;
     left: 0;
 
-    /* Diseño Vertical */
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -114,14 +88,11 @@
 
     background-color: #fff;
     border-radius: 50px;
-    /* Píldora vertical */
     padding: 8px 4px;
     width: 36px;
-    /* Mismo ancho que el botón */
 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 
-    /* Estado Inicial: Oculto y arriba */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-15px);
@@ -129,23 +100,18 @@
     z-index: 1004;
 }
 
-/* Estado Abierto: Visible y cae */
 .socials-dropdown.open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* Iconos pequeños dentro del menú vertical */
 .icon-button.small {
     width: 30px;
     height: 30px;
     min-height: 30px;
 }
 
-/* =========================================================
-   5. SECCIÓN DERECHA Y ELEMENTOS COMUNES
-   ========================================================= */
 .section-right-group {
     display: flex;
     align-items: center;
@@ -158,7 +124,6 @@
     gap: 8px;
 }
 
-/* Estilo Base de Botones Redondos */
 .icon-button {
     background-color: #3b3b3b;
     color: #E8F3F4;
@@ -178,15 +143,11 @@
     transform: scale(1.05);
 }
 
-/* Botón cerrar del modal */
 .close-btn {
     background-color: #eee;
     color: #333;
 }
 
-/* =========================================================
-   6. BOTÓN EXPLORAR Y MEGA MENÚ (ESCRITORIO)
-   ========================================================= */
 .explore-container {
     position: relative;
     background-color: rgb(233, 233, 233);
@@ -211,13 +172,11 @@
     user-select: none;
 }
 
-/* --- MEGA MENÚ FLOTANTE (4 COLUMNAS) --- */
 .mega-menu {
     position: absolute;
     top: 45px;
     right: 0;
 
-    /* ANCHO AJUSTADO PARA 4 COLUMNAS */
     width: 950px;
 
     background-color: rgba(255, 255, 255, 0.95);
@@ -226,7 +185,6 @@
     padding: 25px;
 
     display: grid;
-    /* GRILLA DE 4 COLUMNAS */
     grid-template-columns: 2fr 1.5fr 1fr 1fr;
     gap: 40px;
 
@@ -239,7 +197,6 @@
     z-index: 1010;
 }
 
-/* Mostrar menú al hover (Solo si pantalla > 1024px) */
 @media (min-width: 1025px) {
     .explore-container:hover .mega-menu {
         opacity: 1;
@@ -248,7 +205,6 @@
     }
 }
 
-/* Estilos de enlaces del menú */
 .menu-column {
     display: flex;
     flex-direction: column;
@@ -273,14 +229,10 @@
     text-decoration: underline;
 }
 
-/* Botón Hamburguesa (Oculto en escritorio) */
 .mobile-menu-trigger {
     display: none;
 }
 
-/* =========================================================
-   7. MODAL MENÚ MÓVIL (PANTALLA COMPLETA)
-   ========================================================= */
 .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -313,12 +265,10 @@
     flex-direction: column;
     gap: 15px;
 
-    /* Para permitir scroll si el menú es muy alto */
     max-height: 80vh;
     overflow-y: auto;
 }
 
-/* Nuevos Iconos Home/User en el menú móvil */
 .mobile-nav-icons {
     display: flex;
     gap: 15px;
@@ -367,14 +317,7 @@
     font-weight: 500;
 }
 
-/* =========================================================
-   8. MEDIA QUERIES (RESPONSIVIDAD)
-   ========================================================= */
-
-/* TABLET Y MÓVIL (< 1024px) */
 @media (max-width: 1023px) {
-
-    /* Ocultar elementos de escritorio */
     .desktop-socials {
         display: none;
     }
@@ -383,32 +326,23 @@
         display: none;
     }
 
-    /* Ocultamos botón explorar */
     .section-right {
         display: none;
     }
 
-    /* Ocultamos Home/User de la barra */
-
-    /* Mostrar elementos móviles */
     .mobile-socials-wrapper {
         display: flex;
     }
 
-    /* Activamos la flecha vertical */
     .mobile-menu-trigger {
         display: flex;
     }
 
-    /* Activamos hamburguesa */
-
-    /* Ajuste de logo */
     .header-logo-center {
         height: 34px;
     }
 }
 
-/* MÓVIL PEQUEÑO (< 767px) */
 @media (max-width: 767px) {
     .header-logo-center {
         height: 28px;

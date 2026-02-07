@@ -5,10 +5,9 @@ import { ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-// --- ANIMACIÓN 1: DIGITAL NETWORK (Consultoría) ---
-// Minimalista, tecnológica, nodos conectados sutiles
+
 const ConsultingAnimation = () => {
-    // Generamos puntos estáticos para la red
+
     const [points, setPoints] = React.useState<Array<{ top: string, left: string, delay: number, duration: number }>>([]);
 
     React.useEffect(() => {
@@ -23,10 +22,10 @@ const ConsultingAnimation = () => {
 
     return (
         <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-50/50">
-            {/* Grid de fondo sutil */}
+
             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-            {/* Nodos pulsantes */}
+
             {points.map((p, i) => (
                 <motion.div
                     key={i}
@@ -45,7 +44,7 @@ const ConsultingAnimation = () => {
                 />
             ))}
 
-            {/* Líneas de conexión animadas (SVG) */}
+
             <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
                 <motion.path
                     d="M0,100 Q50,0 100,100 T200,100"
@@ -61,12 +60,11 @@ const ConsultingAnimation = () => {
     );
 };
 
-// --- ANIMACIÓN 2: FLUID ALCHEMY (Branding) ---
-// Orgánica, artística, gradientes que se mezclan suavemente
+
 const BrandingAnimation = () => {
     return (
         <div className="absolute inset-0 w-full h-full overflow-hidden bg-black">
-            {/* Orbe 1 */}
+
             <motion.div
                 className="absolute w-[150%] h-[150%] bg-gradient-to-r from-red-600 to-purple-800 rounded-full blur-[80px] opacity-60"
                 style={{ top: "-20%", left: "-20%" }}
@@ -75,7 +73,7 @@ const BrandingAnimation = () => {
                 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
-            {/* Orbe 2 */}
+
             <motion.div
                 className="absolute w-[100%] h-[100%] bg-gradient-to-tl from-orange-500 to-transparent rounded-full blur-[60px] opacity-50"
                 style={{ bottom: "-10%", right: "-10%" }}
@@ -85,7 +83,7 @@ const BrandingAnimation = () => {
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* Ruido sutil para textura (opcional) */}
+
             <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay"></div>
         </div>
     );
@@ -94,7 +92,7 @@ const BrandingAnimation = () => {
 export default function FeatureCards() {
     return (
         <div className="features-container" suppressHydrationWarning>
-            {/* TARJETA 1: CONSULTORÍA */}
+
             <Link href="/servicios/consultoria" className="feature-card-item card-consulting group relative overflow-hidden" suppressHydrationWarning>
                 <div className="card-canvas-native" suppressHydrationWarning>
                     <img
@@ -109,7 +107,7 @@ export default function FeatureCards() {
                 </div>
             </Link>
 
-            {/* TARJETA 2: BRANDING */}
+
             <Link href="/servicios/branding-corporativo" className="feature-card-item card-branding group relative overflow-hidden" suppressHydrationWarning>
                 <div className="card-canvas-native" suppressHydrationWarning>
                     <video
@@ -127,7 +125,7 @@ export default function FeatureCards() {
                 </div>
             </Link>
 
-            {/* TARJETA 3: UI/UX */}
+
             <Link href="/servicios/ui-ux" className="feature-card-item card-uiux group relative overflow-hidden" suppressHydrationWarning>
                 <div className="card-canvas-native" suppressHydrationWarning>
                     <img

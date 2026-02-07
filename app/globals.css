@@ -2,15 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* app/globals.css */
 
-/* 1. RESET CRÍTICO: Esto evita que los paddings rompan los anchos */
-*, *::before, *::after {
+
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-/* 2. COMPORTAMIENTO HÍBRIDO (Móvil vs Escritorio) */
-html, body {
+
+html,
+body {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -18,10 +21,12 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Solo en Escritorio congelamos la pantalla */
+
 @media (min-width: 1024px) {
-  html, body {
+
+  html,
+  body {
     height: 100vh;
-    overflow: hidden; 
+    overflow: hidden;
   }
 }

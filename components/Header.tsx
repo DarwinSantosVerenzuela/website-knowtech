@@ -18,7 +18,6 @@ export default function Header() {
   return (
     <header className="header-wrapper">
 
-      {/* --- LOGO CENTRAL (FLOTANTE) --- */}
       <Link href="/">
         <img
           src="/aguacates-estudios-venezuela.png"
@@ -27,13 +26,10 @@ export default function Header() {
         />
       </Link>
 
-      {/* --- BARRA PRINCIPAL --- */}
       <div className="pill-main">
 
-        {/* 1. IZQUIERDA: Redes Sociales */}
         <div className="section-left">
 
-          {/* Escritorio */}
           <div className="desktop-socials">
             <button className="icon-button" aria-label="Instagram"><SiInstagram size={18} /></button>
             <button className="icon-button" aria-label="Behance"><SiBehance size={16} /></button>
@@ -41,7 +37,6 @@ export default function Header() {
             <button className="icon-button" aria-label="GitHub"><SiGithub size={18} /></button>
           </div>
 
-          {/* Móvil */}
           <div className="mobile-socials-wrapper">
             <button
               className={`icon-button arrow-trigger ${showSocials ? 'active' : ''}`}
@@ -61,17 +56,13 @@ export default function Header() {
 
         </div>
 
-        {/* 2. DERECHA: Explorar + Iconos */}
         <div className="section-right-group">
 
-          {/* --- BOTÓN EXPLORAR (Escritorio) --- */}
           <div className="explore-container">
             <span className="explore-text">Explorar</span>
 
-            {/* MEGA MENÚ (Ahora con 4 Columnas) */}
             <div className="mega-menu">
 
-              {/* Columna 1 */}
               <div className="menu-column">
                 <span className="menu-title">Desarrollo</span>
                 <a href="/servicios/software-a-medida" className="menu-item">Desarrollo de Software a medida</a>
@@ -81,7 +72,6 @@ export default function Header() {
                 <a href="/servicios/backend-api" className="menu-item">Ingeniería de APIs y conectividad backend</a>
               </div>
 
-              {/* Columna 2 */}
               <div className="menu-column">
                 <span className="menu-title">Diseño</span>
                 <a href="/servicios/ui-ux" className="menu-item">Diseño UI/UX</a>
@@ -90,7 +80,6 @@ export default function Header() {
                 <a href="/servicios/branding-ecosistemas" className="menu-item">Branding para ecosistemas digitales</a>
               </div>
 
-              {/* Columna 3 */}
               <div className="menu-column">
                 <span className="menu-title">Servicios</span>
                 <a href="/servicios/consultoria" className="menu-item">Consultoria</a>
@@ -98,7 +87,6 @@ export default function Header() {
                 <a href="/servicios/implementacion" className="menu-item">Implementacion</a>
               </div>
 
-              {/* --- NUEVA COLUMNA 4: EMPRESA --- */}
               <div className="menu-column">
                 <span className="menu-title">Empresa</span>
                 <a href="/servicios/soluciones" className="menu-item">Soluciones</a>
@@ -108,13 +96,11 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Iconos Home/User (Solo Escritorio) */}
           <div className="section-right">
             <Link href="/" className="icon-button" aria-label="Home"><Home size={18} /></Link>
             <button className="icon-button" aria-label="Profile"><User size={18} /></button>
           </div>
 
-          {/* Botón Hamburguesa (Solo Móvil) */}
           <button
             className="icon-button mobile-menu-trigger"
             onClick={() => setShowMobileMenu(true)}
@@ -126,7 +112,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* --- MODAL MENÚ MÓVIL --- */}
       <div className={`mobile-menu-overlay ${showMobileMenu ? 'open' : ''}`}>
         <div className="mobile-menu-content">
 
@@ -166,7 +151,6 @@ export default function Header() {
               <a href="/servicios/implementacion">Implementacion</a>
             </div>
 
-            {/* --- NUEVO GRUPO MÓVIL: EMPRESA --- */}
             <div className="mobile-link-group">
               <span className="group-title">Empresa</span>
               <a href="/servicios/soluciones">Soluciones</a>

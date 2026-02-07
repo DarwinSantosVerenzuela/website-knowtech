@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { X } from 'lucide-react'; // Icono de cerrar
+import { X } from 'lucide-react';
 
 interface PrivacyPolicyModalProps {
     isOpen: boolean;
@@ -14,7 +14,6 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
         <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
             <div className="bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden relative animate-scaleUp">
 
-                {/* Header del Modal */}
                 <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white">
                     <h2 className="text-2xl font-bold">Política de Uso y Privacidad</h2>
                     <button
@@ -26,7 +25,6 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
                     </button>
                 </div>
 
-                {/* Contenido Scrollable */}
                 <div className="p-8 overflow-y-auto text-gray-700 leading-relaxed space-y-6">
 
                     <p className="font-medium text-lg text-gray-900 border-l-4 border-blue-500 pl-4 bg-blue-50/50 py-2 rounded-r-lg">
@@ -73,7 +71,6 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
 
                 </div>
 
-                {/* Footer del Modal */}
                 <div className="p-6 border-t border-gray-100 bg-gray-50 flex justify-end">
                     <button
                         onClick={onClose}
